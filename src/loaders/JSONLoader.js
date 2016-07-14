@@ -18,24 +18,7 @@ THREE.JSONLoader = function ( manager ) {
 
 };
 
-THREE.JSONLoader.prototype = {
-
-	constructor: THREE.JSONLoader,
-
-	// Deprecated
-
-	get statusDomElement () {
-
-		if ( this._statusDomElement === undefined ) {
-
-			this._statusDomElement = document.createElement( 'div' );
-
-		}
-
-		console.warn( 'THREE.JSONLoader: .statusDomElement has been removed.' );
-		return this._statusDomElement;
-
-	},
+Object.assign( THREE.JSONLoader.prototype, {
 
 	load: function( url, onLoad, onProgress, onError ) {
 
@@ -399,7 +382,7 @@ THREE.JSONLoader.prototype = {
 
 			}
 
-		};
+		}
 
 		function parseSkin() {
 
@@ -444,7 +427,7 @@ THREE.JSONLoader.prototype = {
 
 			}
 
-		};
+		}
 
 		function parseMorphing( scale ) {
 
@@ -546,7 +529,7 @@ THREE.JSONLoader.prototype = {
 
 			if ( outputAnimations.length > 0 ) geometry.animations = outputAnimations;
 
-		};
+		}
 
 		if ( json.materials === undefined || json.materials.length === 0 ) {
 
@@ -562,4 +545,4 @@ THREE.JSONLoader.prototype = {
 
 	}
 
-};
+} );
